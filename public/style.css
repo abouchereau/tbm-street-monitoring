@@ -1,0 +1,141 @@
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --green: #22c55e;
+    --red: #ef4444;
+    --orange: #f59e0b;
+    --blue: #3b82f6;
+    --gray: #94a3b8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    padding: 16px;
+}
+
+h5 {
+    margin: 28px 0 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== Top Stats ===== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.stat-card {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 12px 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--gray);
+}
+
+.stat-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.cpu { color: var(--orange); }
+.ram { color: var(--blue); }
+.disk { color: var(--green); }
+.temp { color: var(--red); }
+
+/* ===== Components ===== */
+.components {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.component-card {
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+.component-card small {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.active {
+    background: rgba(34,197,94,0.15);
+    border: 2px solid var(--green);
+    color: var(--green);
+}
+
+.inactive {
+    background: rgba(239,68,68,0.15);
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+
+/* ===== Buttons ===== */
+.actions {
+    display: grid;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 18px;
+    border-radius: 16px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-warning { background: var(--orange); color: #000; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-danger { background: var(--red); color: #fff; }
+.btn-dark { background: #000; color: #fff; }
+
+/* ===== Logs ===== */
+.log-section {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 12px;
+    max-height: 160px;
+    overflow-y: auto;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.log-info { color: #93c5fd; }
+.log-error { color: #fca5a5; }
+.mt {
+    margin-top: 20px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TBM Street Monitoring</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Stats ===== -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-label">CPU</div>
+      <div class="stat-value cpu"><span id="value-cpu">-</span>%</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">RAM</div>
+      <div class="stat-value ram"><span id="value-ram">-</span>%</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">DISK</div>
+      <div class="stat-value disk"><span id="value-disk">-</span>%</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">TEMP</div>
+      <div class="stat-value temp"><span id="value-temp">-</span>°C</div>
+    </div>
+  </div>
+
+
+  <div class="components mt" id="components">
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-warning" id="pause-app">Pause</button>
+    <button class="btn btn-primary" id="restart-app">Redémarrer l'app</button>
+    <button class="btn btn-danger" id="restart-pc">Redémarrer PC</button>
+    <button class="btn btn-dark" id="shutdown-pc">Éteindre PC</button>
+  </div>
+
+
+  <h5>Logs Info</h5>
+  <ul class="log-section" id="logs-info">
+    <li class="log-info">[12:01:02] Application démarrée</li>
+    <li class="log-info">[12:02:15] Connexion au service OK</li>
+    <li class="log-info">[12:03:10] Vérification des composants...</li>
+  </ul>
+
+  <h5>Logs Erreurs</h5>
+  <ul class="log-section" id="logs-error">
+    <li class="log-error">[12:04:22] Erreur connexion base de données</li>
+    <li class="log-error">[12:05:10] Timeout service API</li>
+  </ul>
+  <script src="app.js"></script>
+  <script>
+    const app = new App();
+  </script>
+</body>
+</html>
