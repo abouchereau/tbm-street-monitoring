@@ -67,7 +67,7 @@ class App {
 
     initButtons() {
         document.getElementById("pause-app").addEventListener("click", () => {
-            this.sendSocket(JSON.stringify({ action: "restart" }));
+            this.sendSocket(JSON.stringify({ action: "pause" }));
         });
         document.getElementById("restart-app").addEventListener("click", () => {
             this.sendSocket(JSON.stringify({ action: "restart" }));
