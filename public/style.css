@@ -34,11 +34,15 @@ h5 {
 /* ===== Top Stats ===== */
 .stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 10px;
 }
 
 .stat-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+    align-items: center;
     background: var(--card);
     border-radius: 14px;
     padding: 12px 8px;
@@ -54,7 +58,6 @@ h5 {
 .stat-value {
     font-size: 1.4rem;
     font-weight: 700;
-    margin-top: 6px;
 }
 
 .cpu { color: var(--orange); }
@@ -139,3 +142,38 @@ h5 {
 .mt {
     margin-top: 20px;
 }
+
+
+progress {
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* fond */
+progress::-webkit-progress-bar {
+  background: #eee;
+  border-radius: 10px;
+}
+
+/* valeur par défaut */
+progress::-webkit-progress-value {
+  background: green;
+  border-radius: 10px;
+}
+
+/* Firefox */
+progress::-moz-progress-bar {
+  background: green;
+}
+
+/* couleurs selon état */
+
+progress.green::-webkit-progress-value { background: #2ecc71; }
+progress.orange::-webkit-progress-value { background: #f39c12; }
+progress.red::-webkit-progress-value { background: #e74c3c; }
+
+progress.green::-moz-progress-bar { background: #2ecc71; }
+progress.orange::-moz-progress-bar { background: #f39c12; }
+progress.red::-moz-progress-bar { background: #e74c3c; }

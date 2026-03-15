@@ -24,9 +24,27 @@ class App {
 
     init() {
         this.displayComponents();
-        this.initDom();
-        this.initSocket();
+        this.initDom();        
         this.initButtons();
+        setTimeout(() => {
+            console.log("🔄 Tentative de cconnexion...");
+            this.initSocket();
+        }, 2000);
+    }
+
+    updateColor() {
+        document.querySelectorAll(".stat-progress progress").forEach(progress => {
+            const value = progress.value;
+            progress.classList.remove("green", "orange", "red");
+
+            if (value <= 60) {
+                progress.classList.add("green");
+            } else if (value <= 80) {
+                progress.classList.add("orange");
+            } else {
+                progress.classList.add("red");
+            }
+        });
     }
 
     displayComponents() {
@@ -58,10 +76,15 @@ class App {
             for (const key in json) {
                 this.manageMessage(key, json[key]);
             }
+            this.updateColor();
         };
 
         this.socket.onclose = () => {
             console.log("❌ Déconnecté du serveur");
+            setTimeout(() => {
+                console.log("🔄 Tentative de reconnexion...");
+                this.initSocket();
+            }, 2000);
         };
     }
 
@@ -122,10 +145,14 @@ class App {
         }
     }
 
-    updateMonitoring(key, value) {
-        const element = document.getElementById("value-"+key);
-        if (element) {
-            element.textContent = value;
+    updateMonitoring(key, value) {        
+        const progessElt = document.getElementById("value-"+key);
+        if (progessElt) {
+            progessElt.value = value;          
+        }
+        const textElt = document.getElementById("value-"+key+"-text");
+        if (textElt) {
+            textElt.textContent = value + (key === "temp" ? "°C" : "%");
         }
     }
 
