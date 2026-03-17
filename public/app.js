@@ -6,13 +6,15 @@ class App {
             "FootSwitch":"footswitch",
             "RGBKeyboard":"rgbkeyboard",
             "DJ Hero PS":"dj-hero-ps",
-            "NTS-1 digital kit":"nts-1-digital-kit",
-            "CH345":"ch345",
-            "nanoKEY2":"nanokey2",
+            "NTS-1":"nts-1-digital-kit",
+            "CH345 MIDI 1":"ch345",
+            "nanoKEY":"nanokey2",
             "nanoKONTROL2":"nanokontrol2",
-            "Arduino":"arduino"
+            "Arduino":"arduino",
+            "Touch":"touch",
         };
     }
+
 
     socket = null;
     logInfoUl = null;
