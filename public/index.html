@@ -8,61 +8,65 @@
 </head>
 <body>
 
+  <div id="state">Déconnecté</div>
+
   <!-- ===== Stats ===== -->
-  <div class="stats">
-    <div class="stat-card">
-      <div class="stat-label">CPU 1</div>
-      <div class="stat-progress">
-        <progress id="value-cpu1" max="100" value="0"></progress>
+  <div class="grid">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">CPU 1</div>
+        <div class="stat-progress">
+          <progress id="value-cpu1" max="100" value="0"></progress>
+        </div>
+        <div class="stat-value" id="value-cpu1-text">0%</div>
       </div>
-      <div class="stat-value" id="value-cpu1-text">0%</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">CPU 2</div>
-      <div class="stat-progress">
-        <progress id="value-cpu2" max="100" value="0"></progress>
+      <div class="stat-card">
+        <div class="stat-label">CPU 2</div>
+        <div class="stat-progress">
+          <progress id="value-cpu2" max="100" value="0"></progress>
+        </div>
+        <div class="stat-value" id="value-cpu2-text">0%</div>
       </div>
-      <div class="stat-value" id="value-cpu2-text">0%</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">CPU 3</div>
-      <div class="stat-progress">
-        <progress id="value-cpu3" max="100" value="0"></progress>
+      <div class="stat-card">
+        <div class="stat-label">CPU 3</div>
+        <div class="stat-progress">
+          <progress id="value-cpu3" max="100" value="0"></progress>
+        </div>
+        <div class="stat-value" id="value-cpu3-text">0%</div>
       </div>
-      <div class="stat-value" id="value-cpu3-text">0%</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">CPU 4</div>
-      <div class="stat-progress">
-        <progress id="value-cpu4" max="100" value="0"></progress>
+      <div class="stat-card">
+        <div class="stat-label">CPU 4</div>
+        <div class="stat-progress">
+          <progress id="value-cpu4" max="100" value="0"></progress>
+        </div>
+        <div class="stat-value" id="value-cpu4-text">0%</div>
       </div>
-      <div class="stat-value" id="value-cpu4-text">0%</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">RAM</div>
-      <div class="stat-progress">
-        <progress id="value-ram" max="100" value="0"></progress>
+      <div class="stat-card">
+        <div class="stat-label">RAM</div>
+        <div class="stat-progress">
+          <progress id="value-ram" max="100" value="0"></progress>
+        </div>
+        <div class="stat-value" id="value-ram-text">0%</div>
       </div>
-      <div class="stat-value" id="value-ram-text">0%</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">DISK</div>
-      <div class="stat-progress">
-        <progress id="value-disk" max="100" value="0"></progress>
+      <div class="stat-card">
+        <div class="stat-label">DISK</div>
+        <div class="stat-progress">
+          <progress id="value-disk" max="100" value="0"></progress>
+        </div>
+        <div class="stat-value" id="value-disk-text">0%</div>
       </div>
-      <div class="stat-value" id="value-disk-text">0%</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">TEMP</div>
-      <div class="stat-progress">
-        <progress id="value-temp" max="100" value="0"></progress>
+      <div class="stat-card">
+        <div class="stat-label">TEMP</div>
+        <div class="stat-progress">
+          <progress id="value-temp" max="100" value="0"></progress>
+        </div>
+        <div class="stat-value" id="value-temp-text">0°C</div>
       </div>
-      <div class="stat-value" id="value-temp-text">0°C</div>
     </div>
-  </div>
 
 
-  <div class="components mt" id="components">
+    <div class="components" id="components">
+    </div>
   </div>
 
   <div class="actions">

@@ -13,6 +13,7 @@ class App {
             "Arduino":"arduino",
             "Touch":"touch",
         };
+
     }
 
 
@@ -29,9 +30,9 @@ class App {
         this.initDom();        
         this.initButtons();
         setTimeout(() => {
-            console.log("🔄 Tentative de cconnexion...");
+            console.log("🔄 Tentative de connexion...");
             this.initSocket();
-        }, 2000);
+        }, 5000);
     }
 
     updateColor() {
@@ -67,10 +68,11 @@ class App {
     }
 
     initSocket() {
-        this.socket = new WebSocket("ws://localhost:" + this.constructor.SOCKET_PORT);
+        this.socket = new WebSocket(`ws://${window.location.hostname}:${App.SOCKET_PORT}`);
 
         this.socket.onopen = () => {
             console.log("✅ Connecté au serveur");
+            document.getElementById("state").textContent = "Connecté";
         };
 
         this.socket.onmessage = (event) => {
@@ -83,10 +85,11 @@ class App {
 
         this.socket.onclose = () => {
             console.log("❌ Déconnecté du serveur");
+            document.getElementById("state").textContent = "Déconnecté";
             setTimeout(() => {
                 console.log("🔄 Tentative de reconnexion...");
                 this.initSocket();
-            }, 2000);
+            }, 5000);
         };
     }
 
@@ -125,14 +128,24 @@ class App {
             case "deviceInactive":
                 this.inactiveDevice(value);   
                 break;
-            case "cpu": case "ram": case "disk": case "temp":
+            case "cpu1": case "cpu2": case "cpu3": case "cpu4": case "ram": case "disk": case "temp":
                 this.updateMonitoring(key, value);
                 break;
         }
     }
 
+    retrieveDevice(deviceName) {
+        for(const key in App.MANDATORY_DEVICES) {
+            if (deviceName.indexOf(key) > -1) {
+                return App.MANDATORY_DEVICES[key];
+            }
+        }
+        return "unknown";
+    }
+
     activeDevice(deviceName) {
-        const card = document.getElementById( this.constructor.MANDATORY_DEVICES[deviceName]);
+        const deviceId= this.retrieveDevice(deviceName);
+        const card = document.getElementById( "device-"+deviceId);
         if (card) {
             card.classList.remove("inactive");
             card.classList.add("active");
@@ -140,7 +153,8 @@ class App {
     }
 
     inactiveDevice(deviceName) {
-        const card = document.getElementById(this.constructor.MANDATORY_DEVICES[deviceName]);
+        const deviceId= this.retrieveDevice(deviceName);
+        const card = document.getElementById("device-"+deviceId);
         if (card) {
             card.classList.remove("active");
             card.classList.add("inactive");

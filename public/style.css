@@ -68,13 +68,13 @@ h5 {
 /* ===== Components ===== */
 .components {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 100%;
     gap: 12px;
 }
 
 .component-card {
     border-radius: 14px;
-    padding: 16px;
+    padding: 4px;
     text-align: center;
     font-weight: 600;
     transition: 0.2s ease-in-out;
@@ -177,3 +177,20 @@ progress.red::-webkit-progress-value { background: #e74c3c; }
 progress.green::-moz-progress-bar { background: #2ecc71; }
 progress.orange::-moz-progress-bar { background: #f39c12; }
 progress.red::-moz-progress-bar { background: #e74c3c; }
+
+ #state {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: var(--card);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 12px;
+}
