@@ -20,6 +20,7 @@ class App {
     socket = null;
     logInfoUl = null;
     logErrorUl = null;
+    wakeLock = null;
 
     constructor() {
         this.init();
@@ -109,12 +110,17 @@ class App {
         document.getElementById("shutdown-pc").addEventListener("click", () => {
             this.sendSocket(JSON.stringify({ action: "shutdown-pc" }));
         });
-        document.getElementById("toggle-fullscreen").addEventListener("click", () => {
+        document.getElementById("toggle-fullscreen").addEventListener("click", async () => {
             if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
+                document.documentElement.requestFullscreen();                
+                this.wakeLock = await navigator.wakeLock.request('screen');
             } else {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
+                }
+                if (this.wakeLock) {
+                    await this.wakeLock.release();
+                    this.wakeLock = null;
                 }
             }
         });
