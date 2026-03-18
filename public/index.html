@@ -9,86 +9,90 @@
 <body>
 
   <div id="state">Déconnecté</div>
+  <div id="monitor">
 
-  <!-- ===== Stats ===== -->
-  <div class="grid">
-    <div class="stats">
-      <div class="stat-card">
-        <div class="stat-label">CPU 1</div>
-        <div class="stat-progress">
-          <progress id="value-cpu1" max="100" value="0"></progress>
+    <button id="toggle-fullscreen">Full Screen</button>
+
+    <!-- ===== Stats ===== -->
+    <div class="grid">
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-label">CPU 1</div>
+          <div class="stat-progress">
+            <progress id="value-cpu1" max="100" value="0"></progress>
+          </div>
+          <div class="stat-value" id="value-cpu1-text">0%</div>
         </div>
-        <div class="stat-value" id="value-cpu1-text">0%</div>
+        <div class="stat-card">
+          <div class="stat-label">CPU 2</div>
+          <div class="stat-progress">
+            <progress id="value-cpu2" max="100" value="0"></progress>
+          </div>
+          <div class="stat-value" id="value-cpu2-text">0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">CPU 3</div>
+          <div class="stat-progress">
+            <progress id="value-cpu3" max="100" value="0"></progress>
+          </div>
+          <div class="stat-value" id="value-cpu3-text">0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">CPU 4</div>
+          <div class="stat-progress">
+            <progress id="value-cpu4" max="100" value="0"></progress>
+          </div>
+          <div class="stat-value" id="value-cpu4-text">0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">RAM</div>
+          <div class="stat-progress">
+            <progress id="value-ram" max="100" value="0"></progress>
+          </div>
+          <div class="stat-value" id="value-ram-text">0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">DISK</div>
+          <div class="stat-progress">
+            <progress id="value-disk" max="100" value="0"></progress>
+          </div>
+          <div class="stat-value" id="value-disk-text">0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">TEMP</div>
+          <div class="stat-progress">
+            <progress id="value-temp" max="100" value="0"></progress>
+          </div>
+          <div class="stat-value" id="value-temp-text">0°C</div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">CPU 2</div>
-        <div class="stat-progress">
-          <progress id="value-cpu2" max="100" value="0"></progress>
-        </div>
-        <div class="stat-value" id="value-cpu2-text">0%</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">CPU 3</div>
-        <div class="stat-progress">
-          <progress id="value-cpu3" max="100" value="0"></progress>
-        </div>
-        <div class="stat-value" id="value-cpu3-text">0%</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">CPU 4</div>
-        <div class="stat-progress">
-          <progress id="value-cpu4" max="100" value="0"></progress>
-        </div>
-        <div class="stat-value" id="value-cpu4-text">0%</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">RAM</div>
-        <div class="stat-progress">
-          <progress id="value-ram" max="100" value="0"></progress>
-        </div>
-        <div class="stat-value" id="value-ram-text">0%</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">DISK</div>
-        <div class="stat-progress">
-          <progress id="value-disk" max="100" value="0"></progress>
-        </div>
-        <div class="stat-value" id="value-disk-text">0%</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">TEMP</div>
-        <div class="stat-progress">
-          <progress id="value-temp" max="100" value="0"></progress>
-        </div>
-        <div class="stat-value" id="value-temp-text">0°C</div>
+
+
+      <div class="components" id="components">
       </div>
     </div>
 
-
-    <div class="components" id="components">
+    <div class="actions">
+      <button class="btn btn-warning" id="pause-app">Pause</button>
+      <button class="btn btn-primary" id="restart-app">Redémarrer l'app</button>
+      <button class="btn btn-danger" id="restart-pc">Redémarrer PC</button>
+      <button class="btn btn-dark" id="shutdown-pc">Éteindre PC</button>
     </div>
+
+
+    <h5>Logs Info</h5>
+    <ul class="log-section" id="logs-info">
+      <li class="log-info">[12:01:02] Application démarrée</li>
+      <li class="log-info">[12:02:15] Connexion au service OK</li>
+      <li class="log-info">[12:03:10] Vérification des composants...</li>
+    </ul>
+
+    <h5>Logs Erreurs</h5>
+    <ul class="log-section" id="logs-error">
+      <li class="log-error">[12:04:22] Erreur connexion base de données</li>
+      <li class="log-error">[12:05:10] Timeout service API</li>
+    </ul>
   </div>
-
-  <div class="actions">
-    <button class="btn btn-warning" id="pause-app">Pause</button>
-    <button class="btn btn-primary" id="restart-app">Redémarrer l'app</button>
-    <button class="btn btn-danger" id="restart-pc">Redémarrer PC</button>
-    <button class="btn btn-dark" id="shutdown-pc">Éteindre PC</button>
-  </div>
-
-
-  <h5>Logs Info</h5>
-  <ul class="log-section" id="logs-info">
-    <li class="log-info">[12:01:02] Application démarrée</li>
-    <li class="log-info">[12:02:15] Connexion au service OK</li>
-    <li class="log-info">[12:03:10] Vérification des composants...</li>
-  </ul>
-
-  <h5>Logs Erreurs</h5>
-  <ul class="log-section" id="logs-error">
-    <li class="log-error">[12:04:22] Erreur connexion base de données</li>
-    <li class="log-error">[12:05:10] Timeout service API</li>
-  </ul>
   <script src="app.js"></script>
   <script>
     const app = new App();

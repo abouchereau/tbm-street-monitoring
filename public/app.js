@@ -71,8 +71,10 @@ class App {
         this.socket = new WebSocket(`ws://${window.location.hostname}:${App.SOCKET_PORT}`);
 
         this.socket.onopen = () => {
-            console.log("✅ Connecté au serveur");
-            document.getElementById("state").textContent = "Connecté";
+            console.log("✅ Connecté au serveur");            
+            document.getElementById("state").style.display = "none";
+            document.getElementById("monitor").style.display = "block";
+
         };
 
         this.socket.onmessage = (event) => {
@@ -85,7 +87,8 @@ class App {
 
         this.socket.onclose = () => {
             console.log("❌ Déconnecté du serveur");
-            document.getElementById("state").textContent = "Déconnecté";
+            document.getElementById("state").style.display = "block";            
+            document.getElementById("monitor").style.display = "none";
             setTimeout(() => {
                 console.log("🔄 Tentative de reconnexion...");
                 this.initSocket();
@@ -105,6 +108,15 @@ class App {
         });
         document.getElementById("shutdown-pc").addEventListener("click", () => {
             this.sendSocket(JSON.stringify({ action: "shutdown-pc" }));
+        });
+        document.getElementById("toggle-fullscreen").addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
         });
     }
 
