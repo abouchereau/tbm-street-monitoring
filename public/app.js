@@ -147,7 +147,7 @@ class App {
                 this.inactiveDevice(value);   
                 break;
             case "cpu1": case "cpu2": case "cpu3": case "cpu4": case "ram": case "disk": case "temp":
-                this.updateMonitoring(key, value);
+                this.updateMonitoring(key, Math.round(value));
                 break;
         }
     }
